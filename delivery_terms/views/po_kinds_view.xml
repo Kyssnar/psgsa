@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record model="ir.ui.view" id="po_kinds_tree">
+        <field name="name">po.kinds.tree</field>
+        <field name="model">po.kinds</field>
+        <field name="arch" type="xml">
+            <tree string="PO Kinds Tree">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_po_kinds_form">
+        <field name="name">po.kinds.form</field>
+        <field name="model">po.kinds</field>
+        <field name="arch" type="xml">
+            <form string="PO Kinds Form">
+
+                <sheet>
+                    <group>
+                        <field name="name"/>
+
+                        <field name="description"/>
+
+                    </group>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_po_kinds_kanban">
+            <field name="name">po.kinds.kanban</field>
+            <field name="model">po.kinds</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+
+                                    <strong><field name="name" /></strong>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+    <record id="action_po_kinds" model="ir.actions.act_window">
+        <field name="name">PO Kinds</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">po.kinds</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="po_kinds_tree"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create PO Kinds.
+            </p>
+        </field>
+    </record>
+
+    <menuitem name="PO Kinds"
+              id="menu_base_po_kinds"
+              action="action_po_kinds"
+              parent="purchase.menu_purchase_config"
+              sequence="42"/>
+
+
+</odoo>

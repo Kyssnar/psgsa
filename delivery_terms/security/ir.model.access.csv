@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_delivery_terms,delivery.terms,model_delivery_terms,base.group_user,1,1,1,1
+access_po_types,po.types,model_po_types,base.group_user,1,1,1,1
+access_po_kinds,po.kinds,model_po_kinds,base.group_user,1,1,1,1

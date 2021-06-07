@@ -1,0 +1,16 @@
+<odoo>
+
+    <record id="delivery_terms_view_move_form_inherit" model="ir.ui.view">
+        <field name="name">account.move.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='to_check']" position="after">
+                <field name="delivery_terms_id"/>
+                <field name="po_types_id"/>
+                <field name="po_kinds_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
