@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_move_view_form_modify" model="ir.ui.view">
+        <field name="name">account.move.view.form.inherit.modify</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_post']" position="attributes">
+                <attribute name="groups">psg_security_accessrights.show_button_post_journal_entries</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_cancel']" position="attributes">
+                <attribute name="groups">psg_security_accessrights.show_button_cancel_entry_journal_entries</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
