@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <!-- actions -->
+        <record model="ir.actions.act_window" id="account_source_journal_action">
+            <field name="name">Source Journal</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.source_journal</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    create source journal
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem action="account_source_journal_action" id="menu_account_source_journal_action"
+                  parent="account.menu_account_config" sequence="1"/>
+
+        <!-- Views Form -->
+        <record model="ir.ui.view" id="account_source_journal_view_form">
+            <field name="name">Source Journal Form</field>
+            <field name="model">account.source_journal</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_document_serials" type="object" class="oe_stat_button" icon="fa-table">
+                                <div class="o_stat_info">
+                                    <field name="number_of_documents" class="o_stat_value"/>
+                                    <span class="o_stat_text">document serials</span>
+                                </div>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="number_of_documents"/>
+                                <field name="serial_from"/>
+                                <field name="serial_to"/>
+                                <field name="note"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Views Tree -->
+        <record model="ir.ui.view" id="account_source_journal_view_tree">
+            <field name="name">Source Journal List</field>
+            <field name="model">account.source_journal</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="number_of_documents"/>
+                    <field name="serial_from"/>
+                    <field name="serial_to"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Sequence -->
+        <record id="sequence_source_journal" model="ir.sequence">
+            <field name="name">source journal</field>
+            <field name="code">self.journal_number</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">JN</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>
